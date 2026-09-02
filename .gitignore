@@ -1,0 +1,19 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+._*
+
+# Médias sources (~1,7 Go) — inutiles en production.
+# Contient la vidéo 4K d'origine (Mini VSL V2, 1,5 Go), les photos et les
+# polices récupérées sur hkhealthcenter.be, plus le script de génération
+# des images. Les versions optimisées réellement servies sont dans assets/.
+# Ces fichiers restent sur votre disque : ils ne sont simplement pas versionnés.
+# Supprimez cette ligne si vous voulez aussi les sauvegarder sur GitHub
+# (attention : GitHub refuse les fichiers de plus de 100 Mo).
+/_sources/
+
+# Outils
+.vercel/
+.netlify/
+node_modules/
+.claude/

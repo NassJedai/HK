@@ -108,9 +108,9 @@ python3 -m http.server 8849
 
 Puis ouvrir http://localhost:8849/index.html
 
-> Ce serveur de test ne gère pas les requêtes *Range* : **on ne peut pas avancer
-> dans la vidéo** en local (la lecture depuis le début fonctionne). Sur Cloudflare
-> Pages, l’avance rapide fonctionne normalement.
+> Ce serveur de test ne gère pas les requêtes *Range* : on ne peut pas avancer
+> dans la vidéo en local. La lecture depuis le début, elle, fonctionne — voir §7
+> pour le comportement en production.
 
 ## 3. Le lien WhatsApp
 
@@ -271,6 +271,22 @@ garder un premier écran à ~117 Ko malgré une vidéo de 2 min 42.
 L’image d’affiche est une image extraite de la vidéo à 1,2 s, **recadrée pour
 retirer le sous-titre incrusté** (« Bonjour je suis Simon ») qui entrait en
 conflit avec l’étiquette « Le mot du gérant ».
+
+### Une limite à connaître : l’avance rapide
+
+Cloudflare Pages **ne répond pas aux requêtes HTTP *Range*** : il renvoie toujours
+le fichier entier (vérifié aussi sur cfitness.pages.dev, c’est le comportement de
+la plateforme, pas un réglage). Concrètement :
+
+- la lecture depuis le début démarre presque instantanément — le fichier est
+  encodé avec `+faststart`, l’en-tête de la vidéo est en tête de fichier ;
+- en revanche, **glisser la barre de progression vers un passage non encore
+  téléchargé fait patienter** le temps que le téléchargement rattrape.
+
+Pour un VSL de 2 min 42 que les gens regardent en linéaire, c’est sans
+conséquence. Si un jour ça devient gênant (vidéo plus longue, chapitrage), les
+deux options sont Cloudflare Stream (payant, ~1 €/1000 min vues) ou un bucket R2
+derrière un Worker, qui gèrent tous les deux le *Range*.
 
 Les sous-titres étant incrustés dans l’image, la mention *« Vidéo sous-titrée —
 vous pouvez la regarder sans le son »* est affichée sous le lecteur : beaucoup de

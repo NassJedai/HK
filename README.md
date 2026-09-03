@@ -64,8 +64,10 @@ https://github.com/settings/tokens (« Generate new token (classic) », portée
 
 ### b. Brancher Cloudflare Pages
 
-1. https://dash.cloudflare.com → **Workers & Pages** → **Create** → **Pages** →
-   **Connect to Git**, autoriser GitHub et choisir le dépôt.
+1. https://dash.cloudflare.com → **Workers & Pages** → **Create application** →
+   lien **« Continue to Pages »** en bas → **Import an existing Git repository**,
+   puis choisir le dépôt. (Cloudflare pousse désormais le flux Workers ; c'est bien
+   le flux **Pages** qu'il faut, comme pour cfitness, vlsport et polaris.)
 2. Réglages de build :
 
    | Champ | Valeur |
@@ -78,11 +80,14 @@ https://github.com/settings/tokens (« Generate new token (classic) », portée
 
 Chaque `git push` sur `main` redéploie automatiquement.
 
-### c. Réglages à faire une fois l’URL connue
+### c. C'est en ligne
 
-Deux occurrences de `https://hkhealth.pages.dev` sont à remplacer dans le `<head>`
-de `index.html` (`og:url` et `og:image`). Sans URL absolue, **aucun aperçu ne
-s’affiche** quand le lien est partagé, WhatsApp compris.
+Le site est en production sur **https://hk-health-center.pages.dev**
+(dépôt : https://github.com/NassJedai/HK, privé).
+
+`og:url` et `og:image` sont déjà en URL absolues sur ce domaine — sans ça,
+**aucun aperçu ne s'affiche** quand le lien est partagé, WhatsApp compris.
+Si vous changez de domaine, ce sont les deux seules lignes à mettre à jour.
 
 Si vous ajoutez un domaine personnalisé (onglet **Custom domains** du projet
 Cloudflare) — par exemple `essai.hkhealthcenter.be` — c’est ce domaine qu’il faut
@@ -93,7 +98,7 @@ pas sur Google et ne concurrence donc pas hkhealthcenter.be. Pour la rendre
 indexable, supprimer cette ligne du `<head>`.
 
 **URL à renseigner dans la campagne Meta Ads** comme page de destination après
-l’envoi du formulaire Lead Ads : l’URL finale du projet Cloudflare.
+l’envoi du formulaire Lead Ads : `https://hk-health-center.pages.dev`
 
 ### Tester en local
 

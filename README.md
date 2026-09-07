@@ -114,17 +114,18 @@ Puis ouvrir http://localhost:8849/index.html
 
 ## 3. Le lien WhatsApp
 
-Les **5 CTA** de la page pointent vers exactement la même URL :
+Les **4 boutons WhatsApp** de la page (hero, sous la vidéo, CTA final, barre
+collante mobile) pointent vers exactement la même URL :
 
 ```
-https://wa.me/32494857366?text=Bonjour%2C%20je%20souhaiterais%20r%C3%A9server%20ma%20s%C3%A9ance%20d%E2%80%99essai%20gratuite%20%2B%20mon%20analyse%20corporelle%20au%20HK%20Health%20Center%20%C3%A0%20Braine-l%E2%80%99Alleud.%20Merci%20%21
+https://wa.me/32494857366?text=Bonjour%2C%20je%20souhaiterais%20r%C3%A9server%20ma%20s%C3%A9ance%20d%E2%80%99essai%20gratuite%20au%20HK%20Health%20Center%20%C3%A0%20Braine-l%E2%80%99Alleud.%20Merci%20%21
 ```
 
 Message pré-rempli : *« Bonjour, je souhaiterais réserver ma séance d’essai gratuite
-+ mon analyse corporelle au HK Health Center à Braine-l’Alleud. Merci ! »*
+au HK Health Center à Braine-l’Alleud. Merci ! »*
 
 Pour changer le numéro ou le message : rechercher `wa.me` dans `index.html`
-(5 occurrences) et remplacer partout la même URL.
+(4 occurrences) et remplacer partout la même URL.
 
 Un **repli téléphone** discret figure sous le bouton du CTA final
 (`tel:+32494857366`) pour les prospects sans WhatsApp. Il est volontairement en
@@ -384,19 +385,66 @@ Version 540p (mobile) :
 "$FF" -i "_sources/Mini-VSL-V2.mp4" -vf "scale=960:540:flags=lanczos" -c:v libx264 -profile:v high -level 3.1 -pix_fmt yuv420p -crf 28 -preset slow -maxrate 900k -bufsize 1800k -g 60 -c:a aac -b:a 80k -ac 2 -movflags +faststart -y assets/video/vsl-540.mp4
 ```
 
-## 12. Trois points à valider de votre côté
+## 12. La promesse de la séance : ce qui a été revu
 
-1. **« ≈ 1000 calories brûlées en 60 min »** — présent sur l’ancienne landing, je
-   ne l’ai **pas** repris. C’est une dépense très élevée pour une séance d’essai
-   d’une heure, et une promesse chiffrée invérifiable affaiblit le reste de la
-   page. Le bloc de chiffres annonce à la place `60 min / 1 coach / 0 € / 0
-   engagement`. Si vous y tenez, il suffit de remplacer une des quatre `<li
-   class="stat">`.
-2. **« Analyse corporelle »** — la page annonce masse musculaire, masse grasse et
-   répartition. Votre page « HK Method » mentionne des **mesures InBody** : si
-   c’est bien la balance utilisée pendant la séance d’essai, dites-le moi, je
-   nomme la marque (c’est un argument fort et vérifiable).
-3. **Les 6 places** — chiffre repris de l’ancienne landing. À tenir à jour (§5).
+**Première version (livraison du 2 septembre).** La page annonçait un protocole en
+quatre temps — bilan de santé, analyse corporelle, évaluation physique, plan
+d'action — avec la phrase *« Vous repartez avec des chiffres et une direction
+claire »*. Ce n'était pas inventé : c'est ce que promettaient l'ancienne landing
+`free.hkhealthcenter.be` **et le mini VSL lui-même**, où Simon dit à 1 min 56 :
+
+> « J'offre un bilan santé aux personnes les plus motivées. C'est une consultation
+> avec moi durant laquelle on fait un screening nutritionnel, une évaluation et une
+> analyse de votre mode de vie. »
+
+**Retour de Simon (5 septembre).** Trop ambitieux par rapport à la réalité du
+rendez-vous : « je ne fais pas autant de choses pendant le RDV, éventuellement une
+pesée sur l'InBody ». Il craignait de créer des attentes trop hautes.
+
+**Ce qui a été changé.** Il a raison : sur une séance offerte, la promesse qui
+déçoit coûte plus cher que la promesse qui n'attire pas. Le prospect qui vient
+pour un bilan complet et repart sans rien ne devient pas membre, et le dit autour
+de lui. La page annonce désormais :
+
+| Avant | Après |
+|---|---|
+| « Un protocole complet, pas un tour de salle » | « Une heure, un coach, zéro argumentaire » |
+| 01 Bilan de santé | 01 On fait le point *(objectif, passé sportif, douleurs)* |
+| 02 Analyse corporelle | 02 Vous découvrez le centre |
+| 03 Évaluation physique | 03 Mesure InBody — **si vous le souhaitez** |
+| 04 Plan d'action | *(supprimé)* |
+| « Vous repartez avec des chiffres et une direction claire » | « Pas de bilan à rallonge ni de tunnel de vente. Vous venez, vous voyez comment on travaille, et vous décidez après. » |
+
+Le message WhatsApp pré-rempli ne parle plus d'analyse corporelle, la barre de
+bénéfices annonce « Un coach pour vous » au lieu de « Analyse corporelle », et les
+deux descriptions de partage (`description`, `og:description`) ont suivi.
+
+Le bloc de chiffres reste inchangé — `60 min / 1 coach / 0 € / 0 engagement` sont
+tous les quatre exacts.
+
+**Ce n'est pas qu'un repli.** « Zéro argumentaire » lève une objection réelle :
+beaucoup ne réservent pas une séance offerte parce qu'ils redoutent le rendez-vous
+commercial. Promettre moins et le tenir peut convertir aussi bien — et fait venir
+des gens moins méfiants.
+
+### Ce qui reste à trancher
+
+1. **La vidéo dit toujours l'ancienne promesse.** Le mini VSL est en haut de la
+   page, juste au-dessus de cette section : c'est la source la plus crédible, on
+   voit le visage de Simon. Aujourd'hui il annonce un bilan santé + screening
+   nutritionnel + évaluation + analyse du mode de vie, alors que le texte en
+   dessous n'en parle plus. Trois options :
+   - Simon réenregistre les 12 secondes concernées (**le mieux**) ;
+   - on coupe le passage de 115,6 s à 126,3 s — la phrase suivante (« donc si vous
+     voulez être contacté pour planifier cela… ») s'enchaîne correctement et la
+     vidéo perd 11 s. Faisable en une commande, dites-le moi ;
+   - on garde la vidéo telle quelle et Simon assume la promesse en séance.
+2. **L'InBody** — Simon dit « éventuellement une pesée ». La page annonce donc la
+   mesure comme optionnelle. Si ce n'est pas systématiquement disponible, il vaut
+   mieux supprimer l'étape 03 : à confirmer.
+3. **Les 6 places** — chiffre repris de l'ancienne landing. À tenir à jour (§5).
+4. **« ≈ 1000 calories brûlées en 60 min »** — présent sur l'ancienne landing,
+   jamais repris ici, pour la même raison que ci-dessus.
 
 Les trois témoignages (Emilie Vinaimont, Laila Kanawati, Frederic Gonzalez) sont
 repris tels quels de votre page actuelle, celui de Frederic légèrement raccourci.

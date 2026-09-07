@@ -411,7 +411,7 @@ de lui. La page annonce désormais :
 | « Un protocole complet, pas un tour de salle » | « Une heure, un coach, zéro argumentaire » |
 | 01 Bilan de santé | 01 On fait le point *(objectif, passé sportif, douleurs)* |
 | 02 Analyse corporelle | 02 Vous découvrez le centre |
-| 03 Évaluation physique | 03 Mesure InBody — **si vous le souhaitez** |
+| 03 Évaluation physique | 03 Mesure InBody — pesée systématique, **sans plan d'action à la sortie** |
 | 04 Plan d'action | *(supprimé)* |
 | « Vous repartez avec des chiffres et une direction claire » | « Pas de bilan à rallonge ni de tunnel de vente. Vous venez, vous voyez comment on travaille, et vous décidez après. » |
 
@@ -439,9 +439,10 @@ des gens moins méfiants.
      voulez être contacté pour planifier cela… ») s'enchaîne correctement et la
      vidéo perd 11 s. Faisable en une commande, dites-le moi ;
    - on garde la vidéo telle quelle et Simon assume la promesse en séance.
-2. **L'InBody** — Simon dit « éventuellement une pesée ». La page annonce donc la
-   mesure comme optionnelle. Si ce n'est pas systématiquement disponible, il vaut
-   mieux supprimer l'étape 03 : à confirmer.
+2. **L'InBody** — *tranché le 7 septembre* : la pesée est bien faite à chaque
+   séance, la page ne la présente donc plus comme optionnelle. En revanche le
+   prospect ne repart pas avec un plan d'action, ce que l'étape 03 dit maintenant
+   explicitement (« vos chiffres, pas un programme tout fait »).
 3. **Les 6 places** — chiffre repris de l'ancienne landing. À tenir à jour (§5).
 4. **« ≈ 1000 calories brûlées en 60 min »** — présent sur l'ancienne landing,
    jamais repris ici, pour la même raison que ci-dessus.
